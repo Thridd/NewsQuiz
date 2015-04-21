@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EC6D5FAB-7A27-4092-AB12-7B9D8D954FF6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NewsQuiz</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7962069F259018E4FF2BC0A28E5311BACD64809A</key>
+		<string>https://github.com/Thridd/NewsQuiz.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NewsQuiz/NewsQuiz.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7962069F259018E4FF2BC0A28E5311BACD64809A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Thridd/NewsQuiz.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7962069F259018E4FF2BC0A28E5311BACD64809A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7962069F259018E4FF2BC0A28E5311BACD64809A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NewsQuiz</string>
+		</dict>
+	</array>
+</dict>
+</plist>
