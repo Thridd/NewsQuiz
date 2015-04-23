@@ -12,17 +12,87 @@ class QuizViewController: UIViewController {
 
     @IBOutlet weak var toStatsBtn: UIButton!
     
+    @IBOutlet weak var timerDisplay: UILabel!
+    
+    @IBOutlet weak var answerA: UIButton!
+    
+    @IBOutlet weak var answerB: UIButton!
+    
+    @IBOutlet weak var answerC: UIButton!
+    
+    @IBOutlet weak var answerD: UIButton!
+    
+    @IBOutlet weak var questionNumber: UILabel!
+    
+    @IBOutlet weak var nextQuestion: UIButton!
+    
+    var timerCount = 0
+    var timerRunning = false
+    var timer = NSTimer()
+    var question = 1;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        questionNumber.text = "Question \(question)/3"
+        answerA.backgroundColor = UIColor.blueColor()
+        answerB.backgroundColor = UIColor.blueColor()
+        answerC.backgroundColor = UIColor.blueColor()
+        answerD.backgroundColor = UIColor.blueColor()
+        toStatsBtn.hidden = true
+        
+        //Starts the timer when the page loads
+        if (timerRunning == false) {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("counting"), userInfo: nil, repeats: true)
+            timerRunning = true
+        }
+        if (question == 3) {
+            nextQuestion.hidden = true
+            toStatsBtn.hidden = false
+            
+        }
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func nextQuestion(sender: UIButton) {
+        timerCount = 0
+        timerDisplay.text = "0"
+        question++
+        //self.view.setNeedsDisplay()
+        self.viewDidLoad()
+    
     }
     
+    @IBAction func answerA(sender: UIButton) {
+        stopTimer()
+        //Check if answer is correct
+        answerA.backgroundColor = UIColor.greenColor()
+        
+    }
+    
+    @IBAction func answerB(sender: UIButton) {
+        
+    }
+    
+    @IBAction func answerC(sender: UIButton) {
+        
+    }
+    
+    @IBAction func answerD(sender: UIButton) {
+        
+    }
+    
+    func stopTimer() {
+        
+        if (timerRunning == true) {
+            timer.invalidate()
+            timerRunning = false
+        }
+    }
+    
+    func counting() {
+        timerCount += 1
+        timerDisplay.text = "\(timerCount)"
+    }
     
     @IBAction func quit(sender: AnyObject) {
         //Will need to make sure quiz is marked as completed before below
@@ -33,14 +103,4 @@ class QuizViewController: UIViewController {
         performSegueWithIdentifier("toResults", sender: self)
 
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
