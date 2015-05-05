@@ -20,10 +20,6 @@
 		0F3586221AE02CCB00051136 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3586211AE02CCB00051136 /* QuizViewController.swift */; };
 		0F3586241AE02D3200051136 /* QuizResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3586231AE02D3200051136 /* QuizResultsViewController.swift */; };
 		0F3586261AE02D8E00051136 /* PersonalStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3586251AE02D8D00051136 /* PersonalStatsViewController.swift */; };
-		0F7CA2891AF2A0F200880753 /* quizzesTaken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CA2881AF2A0F200880753 /* quizzesTaken.swift */; };
-		0F7CA28B1AF2A64900880753 /* dataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CA28A1AF2A64900880753 /* dataHandler.swift */; };
-		0FA389FB1AF92E9E00ABB854 /* QuizStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA389FA1AF92E9E00ABB854 /* QuizStats.swift */; };
-		0FA389FD1AF9310100ABB854 /* StatsDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA389FC1AF9310100ABB854 /* StatsDataHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +50,6 @@
 		0F3586211AE02CCB00051136 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		0F3586231AE02D3200051136 /* QuizResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizResultsViewController.swift; sourceTree = "<group>"; };
 		0F3586251AE02D8D00051136 /* PersonalStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalStatsViewController.swift; sourceTree = "<group>"; };
-		0F7CA2881AF2A0F200880753 /* quizzesTaken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = quizzesTaken.swift; sourceTree = "<group>"; };
-		0F7CA28A1AF2A64900880753 /* dataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataHandler.swift; sourceTree = "<group>"; };
-		0FA389FA1AF92E9E00ABB854 /* QuizStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizStats.swift; sourceTree = "<group>"; };
-		0FA389FC1AF9310100ABB854 /* StatsDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsDataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +104,6 @@
 				0F3586231AE02D3200051136 /* QuizResultsViewController.swift */,
 				0F3586251AE02D8D00051136 /* PersonalStatsViewController.swift */,
 				0F1B78D31AE6CADE00D6226E /* Articles.swift */,
-				0F7CA2881AF2A0F200880753 /* quizzesTaken.swift */,
-				0F7CA28A1AF2A64900880753 /* dataHandler.swift */,
-				0FA389FA1AF92E9E00ABB854 /* QuizStats.swift */,
-				0FA389FC1AF9310100ABB854 /* StatsDataHandler.swift */,
 			);
 			path = NewsQuiz;
 			sourceTree = "<group>";
@@ -246,13 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FA389FD1AF9310100ABB854 /* StatsDataHandler.swift in Sources */,
 				0F1B78D41AE6CADE00D6226E /* Articles.swift in Sources */,
-				0F7CA2891AF2A0F200880753 /* quizzesTaken.swift in Sources */,
-				0FA389FB1AF92E9E00ABB854 /* QuizStats.swift in Sources */,
 				0F35861E1AE0285500051136 /* ArticlesViewController.swift in Sources */,
 				0F3586221AE02CCB00051136 /* QuizViewController.swift in Sources */,
-				0F7CA28B1AF2A64900880753 /* dataHandler.swift in Sources */,
 				0F3585FC1AE0248500051136 /* AppDelegate.swift in Sources */,
 				0F3586201AE029A500051136 /* ArticlesWebViewController.swift in Sources */,
 				0F3586261AE02D8E00051136 /* PersonalStatsViewController.swift in Sources */,
