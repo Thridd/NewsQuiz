@@ -11,13 +11,24 @@ import UIKit
 class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     var categories = ["World", "U.S.", "Politics", "Business", "Technology", "Sports"]
+    
+    
+    
     var selectedCategory = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let articleData = appDelegate.getArticleData()
+        //println(articleData.articleData[0].date )
+        
+        
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
