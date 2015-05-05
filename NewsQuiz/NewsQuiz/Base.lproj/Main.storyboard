@@ -130,10 +130,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H11-PE-IwT">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="e05-wU-MBG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="QV2-Xs-DgO"/>
+                                    <constraint firstAttribute="height" constant="64" id="e05-wU-MBG"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.49019607843137253" green="0.77254901960784317" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="(Quiz Category)" id="X8F-g0-8O6">
                                         <barButtonItem key="leftBarButtonItem" title="Quit" id="u9q-eH-kAL">
@@ -144,23 +146,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYF-oD-HBZ">
-                                <rect key="frame" x="21" y="110" width="558" height="140"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">This is where the question would be if there was one. Blah blah. This is where the question would be if there was one. Blah blah. This is where the question would be if there was one. Blah blah.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkH-6u-m8P">
                                 <rect key="frame" x="150" y="270" width="300" height="60"/>
-                                <color key="backgroundColor" red="0.50182552235098132" green="0.81952675217515447" blue="0.94969223484848475" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="5MW-xr-Ixw"/>
                                     <constraint firstAttribute="width" constant="300" id="dHs-jK-FTt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Answer A Wrong">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -169,7 +163,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koE-Qq-HcI">
                                 <rect key="frame" x="150" y="350" width="300" height="60"/>
-                                <color key="backgroundColor" red="0.5018255224" green="0.81952675220000004" blue="0.94969223479999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="6e4-1d-Ekk"/>
                                     <constraint firstAttribute="height" constant="60" id="YIx-td-zva"/>
@@ -177,7 +170,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Answer B Wrong">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -186,14 +179,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFN-FY-xGv">
                                 <rect key="frame" x="150" y="430" width="300" height="60"/>
-                                <color key="backgroundColor" red="0.5018255224" green="0.81952675220000004" blue="0.94969223479999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="N7E-Hw-zw4"/>
                                     <constraint firstAttribute="height" constant="60" id="YsG-qL-P6N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Answer C Correct">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -202,14 +194,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2T-cn-ynI">
                                 <rect key="frame" x="150" y="510" width="300" height="60"/>
-                                <color key="backgroundColor" red="0.5018255224" green="0.81952675220000004" blue="0.94969223479999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="dKE-ne-5h1"/>
                                     <constraint firstAttribute="height" constant="60" id="vNG-Y0-Eyh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Answer D Wrong">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -217,14 +208,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6T-to-RHg">
-                                <rect key="frame" x="531" y="81" width="43" height="21"/>
+                                <rect key="frame" x="531" y="85" width="43" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZi-yd-PJn">
                                 <rect key="frame" x="38" y="540" width="75" height="30"/>
                                 <state key="normal" title="Read more">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -234,6 +226,7 @@
                                     <constraint firstAttribute="width" constant="300" id="Mke-3J-M7n"/>
                                 </constraints>
                                 <state key="normal" title="Next Question">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -246,9 +239,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question #/3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLT-TZ-0sm">
-                                <rect key="frame" x="27" y="81" width="99" height="21"/>
+                                <rect key="frame" x="27" y="85" width="99" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="w99-dM-wW9">
@@ -259,6 +252,7 @@
                                     <constraint firstAttribute="width" constant="200" id="zOv-Gj-Cwc"/>
                                 </constraints>
                                 <state key="normal" title="View Results">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -272,6 +266,14 @@
                                     <action selector="toStats:" destination="wfX-1h-I2J" eventType="touchUpInside" id="PVe-sZ-hJE"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYF-oD-HBZ">
+                                <rect key="frame" x="21" y="114" width="558" height="136"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">This is where the question would be if there was one. Blah blah. This is where the question would be if there was one. Blah blah. This is where the question would be if there was one. Blah blah.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -338,8 +340,10 @@
                         <outlet property="answerB" destination="koE-Qq-HcI" id="he3-kz-D75"/>
                         <outlet property="answerC" destination="OFN-FY-xGv" id="aHc-gJ-vcI"/>
                         <outlet property="answerD" destination="W2T-cn-ynI" id="eYx-3O-yu5"/>
+                        <outlet property="navBarTitle" destination="H11-PE-IwT" id="SHC-aD-Zfi"/>
                         <outlet property="nextQuestion" destination="Xf2-tI-X9B" id="KQU-zs-jgk"/>
                         <outlet property="questionNumber" destination="eLT-TZ-0sm" id="RaY-mx-C2N"/>
+                        <outlet property="quizQuestionText" destination="kYF-oD-HBZ" id="cff-VA-Pjw"/>
                         <outlet property="timerDisplay" destination="i6T-to-RHg" id="U2R-UM-dbb"/>
                         <outlet property="toStatsBtn" destination="w99-dM-wW9" id="o8F-0W-pZM"/>
                         <segue destination="LHj-qY-WpV" kind="show" identifier="toResults" id="geo-5t-j4n"/>
