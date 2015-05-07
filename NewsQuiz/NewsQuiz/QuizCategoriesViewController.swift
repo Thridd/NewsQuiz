@@ -18,7 +18,6 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     
     var categories:[String] = [String]()
 
-    var a = quizzesTaken()
     var selectedBtn = Int()
     var selectedCategory = String()
 
@@ -31,7 +30,30 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
         for var i = 0; i < articleData.articleData.count; i+=3 {
             categories.append(articleData.articleData[i].articleCat)
         }
-        
+        if DataHandler.getQuizzes().takenWorld == true && DataHandler.getQuizzes().takenUS == true && DataHandler.getQuizzes().takenPolitics == true && DataHandler.getQuizzes().takenBusiness == true && DataHandler.getQuizzes().takenTechnology == true && DataHandler.getQuizzes().takenSports == true{
+            var screenWidth = self.view.bounds.width
+            var screenHeight = self.view.bounds.height
+            var DynamicView=UIView(frame: CGRectMake(0 , 64, screenWidth, screenHeight))
+            var bgColor = UIColor(red: 116/255, green: 114/255, blue: 98/255, alpha: 1)
+            DynamicView.backgroundColor=bgColor
+            self.view.addSubview(DynamicView)
+            
+            var textView:UITextView = UITextView(frame: CGRectMake(0, 0, screenWidth, screenHeight/2))
+            textView.text = "Congrats,\n NewsQuiz\nMaster!"
+            textView.font = UIFont(name: "Helvetica Neue", size: 60)
+            textView.textAlignment = .Center
+            textView.backgroundColor = UIColor.clearColor()
+            textView.textColor = UIColor.whiteColor()
+            DynamicView.addSubview(textView)
+            
+            var textView2:UITextView = UITextView(frame: CGRectMake(0, ((screenHeight/2)-64), screenWidth, (screenHeight/2) - 64))
+            textView2.text = "You’ve taken every quiz\n available right now. \n\nCheck back tomorrow \n for more great quizzes!"
+            textView2.font = UIFont(name: "Helvetica Neue", size: 25)
+            textView2.backgroundColor = UIColor.clearColor()
+            textView2.textAlignment = .Center
+            textView2.textColor = UIColor.whiteColor()
+            DynamicView.addSubview(textView2)
+        }
         
         
         
@@ -67,11 +89,10 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
         
         let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.text = categories[indexPath.row]
+        
 
         
-        /*if DataHandler.getQuizzes().takenWorld == true && DataHandler.getQuizzes().takenUS == true && DataHandler.getQuizzes().takenPolitics == true && DataHandler.getQuizzes().takenBusiness == true && DataHandler.getQuizzes().takenTechnology == true && DataHandler.getQuizzes().takenSports == true{
-            
-        }*/
+        
         
 
         if categories[indexPath.row] == "World"{
@@ -120,6 +141,7 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedCategory = categories[indexPath.row]
         selectedBtn == 2
+        var a = DataHandler.getQuizzes()
         if categories[indexPath.row] == "World"{
             a.takenWorld = true
             DataHandler.processData(a)
