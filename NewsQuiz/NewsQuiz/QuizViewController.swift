@@ -79,7 +79,7 @@ class QuizViewController: UIViewController {
         toStatsBtn.hidden = true
         
         quizQuestionText.text = quizData[question-1].question
-        navBarTitle.topItem?.title = quizData[question-1].articleCat
+        //navBarTitle.topItem?.title = quizData[question-1].articleCat
         
         //Starts the timer when the page loads
         if (timerRunning == false) {
