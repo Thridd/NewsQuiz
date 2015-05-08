@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1B78D21AE6C82E00D6226E /* articles.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1B78D11AE6C82E00D6226E /* articles.json */; };
+		0F1B78D41AE6CADE00D6226E /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B78D31AE6CADE00D6226E /* Articles.swift */; };
 		0F3585FC1AE0248500051136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3585FB1AE0248500051136 /* AppDelegate.swift */; };
 		0F3586011AE0248500051136 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3585FF1AE0248500051136 /* Main.storyboard */; };
 		0F3586031AE0248500051136 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3586021AE0248500051136 /* Images.xcassets */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F1B78D11AE6C82E00D6226E /* articles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = articles.json; sourceTree = "<group>"; };
+		0F1B78D31AE6CADE00D6226E /* Articles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 		0F3585F61AE0248500051136 /* NewsQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3585FA1AE0248500051136 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F3585FB1AE0248500051136 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		0F3585F81AE0248500051136 /* NewsQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				0F1B78D11AE6C82E00D6226E /* articles.json */,
 				0F3585FB1AE0248500051136 /* AppDelegate.swift */,
 				0F3585FF1AE0248500051136 /* Main.storyboard */,
 				0F3586021AE0248500051136 /* Images.xcassets */,
@@ -98,6 +103,7 @@
 				0F3586211AE02CCB00051136 /* QuizViewController.swift */,
 				0F3586231AE02D3200051136 /* QuizResultsViewController.swift */,
 				0F3586251AE02D8D00051136 /* PersonalStatsViewController.swift */,
+				0F1B78D31AE6CADE00D6226E /* Articles.swift */,
 			);
 			path = NewsQuiz;
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1B78D21AE6C82E00D6226E /* articles.json in Resources */,
 				0F3586011AE0248500051136 /* Main.storyboard in Resources */,
 				0F3586061AE0248500051136 /* LaunchScreen.xib in Resources */,
 				0F3586031AE0248500051136 /* Images.xcassets in Resources */,
@@ -227,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1B78D41AE6CADE00D6226E /* Articles.swift in Sources */,
 				0F35861E1AE0285500051136 /* ArticlesViewController.swift in Sources */,
 				0F3586221AE02CCB00051136 /* QuizViewController.swift in Sources */,
 				0F3585FC1AE0248500051136 /* AppDelegate.swift in Sources */,
@@ -431,6 +439,7 @@
 				0F3586171AE0248500051136 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F3586181AE0248500051136 /* Build configuration list for PBXNativeTarget "NewsQuizTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +448,7 @@
 				0F35861A1AE0248500051136 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
