@@ -126,7 +126,8 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //let destinationViewController = segue.destinationViewController as! QuizViewController
+        let destinationViewController = segue.destinationViewController as! QuizViewController
+        //QuizViewController.
         //destinationViewController.region = selectedRegion
     }
     
