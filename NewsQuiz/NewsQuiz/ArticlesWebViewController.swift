@@ -11,19 +11,30 @@ import UIKit
 class ArticlesWebViewController: UIViewController {
 
     @IBOutlet weak var quizOrArticlesBtn: UIBarButtonItem!
-    
     @IBOutlet weak var takeQuizBtn: UIBarButtonItem!
+    @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var navbar: UINavigationBar!
+    @IBOutlet weak var articleViewer: UIWebView!
+   
+    
+    var art: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(art != nil) {
+            if let url = art?.url{
+                let fullURL = NSURL(string: url)
+                let urlRequest = NSURLRequest(URL: fullURL!)
+                if let check = art?.articleCat{
+                    navigationItem.title = check
+                }
+                articleViewer.loadRequest(urlRequest)
+            }
+        }
+        
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func backToQuizOrArticles(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil)
@@ -33,14 +44,6 @@ class ArticlesWebViewController: UIViewController {
         performSegueWithIdentifier("takeQuiz", sender: self)
 
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
