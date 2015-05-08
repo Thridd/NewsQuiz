@@ -49,6 +49,9 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Initial color setup
+        navigationController?.navigationBar.barTintColor = UIColor(netHex:0x8DCCC0)
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+        navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor(netHex:0x666666)
         quizQuestionText.backgroundColor = UIColor(netHex:0x666666)
         answerA.backgroundColor = UIColor(netHex:0x8DCCC0)
