@@ -44,14 +44,16 @@ class QuizViewController: UIViewController {
     var quizData:[Article] = [Article]()
     var answerData: [String] = [String]()
     var Result = Results()
-    
+    var saveData = QuizStats()
+    var responseTime = [0, 0, 0]
+    var averageResponseTime = 0.0
+    var numCorrect = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Initial color setup
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.barTintColor = UIColor(netHex:0x8DCCC0)
-        navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
-        navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor(netHex:0x666666)
         quizQuestionText.backgroundColor = UIColor(netHex:0x666666)
         answerA.backgroundColor = UIColor(netHex:0x8DCCC0)
@@ -90,8 +92,34 @@ class QuizViewController: UIViewController {
             timerRunning = true
         }
         if (question == 3) {
+            averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / Double(question)
             nextQuestion.hidden = true
             toStatsBtn.hidden = false
+            if (category == "World") {
+                saveData.worldTime = averageResponseTime
+                saveData.worldCorrect = numCorrect
+                StatsDataHandler.processData(saveData)
+            } else if (category == "U.S.") {
+                saveData.usTime = averageResponseTime
+                saveData.usCorrect = numCorrect
+                StatsDataHandler.processData(saveData)
+            } else if (category == "Politics") {
+                saveData.politicsTime = averageResponseTime
+                saveData.politicsCorrect = numCorrect
+                StatsDataHandler.processData(saveData)
+            } else if (category == "Business") {
+                saveData.businessTime = averageResponseTime
+                saveData.businessCorrect = numCorrect
+                StatsDataHandler.processData(saveData)
+            } else if (category == "Technology") {
+                saveData.technologyTime = averageResponseTime
+                saveData.technologyCorrect = numCorrect
+                StatsDataHandler.processData(saveData)
+            } else {
+                saveData.sportsTime = averageResponseTime
+                saveData.sportsCorrect = numCorrect
+                StatsDataHandler.processData(saveData)
+            }
         }
         
     }
@@ -122,24 +150,26 @@ class QuizViewController: UIViewController {
         //self.view.setNeedsDisplay()
         answerData.removeAll()
         self.viewDidLoad()
-    
     }
     
     @IBAction func answerA(sender: UIButton) {
         stopTimer()
+        responseTime[question-1] = timerCount
         if (answerA.titleLabel?.text == quizData[question-1].correctAns) {
+            numCorrect++
             answerA.backgroundColor = UIColor(netHex:0xD3E397)
         } else {
             answerA.backgroundColor = UIColor(netHex:0xE96C44)
             showCorrectAnswer(answerB, button2: answerC, button3: answerD)
         }
-        
     }
     
     @IBAction func answerB(sender: UIButton) {
         stopTimer()
+        responseTime[question-1] = timerCount
         if (answerB.titleLabel?.text == quizData[question-1].correctAns) {
             answerB.backgroundColor = UIColor(netHex:0xD3E397)
+            numCorrect++
         } else {
             answerB.backgroundColor = UIColor(netHex:0xE96C44)
             showCorrectAnswer(answerA, button2: answerC, button3: answerD)
@@ -148,8 +178,10 @@ class QuizViewController: UIViewController {
     
     @IBAction func answerC(sender: UIButton) {
         stopTimer()
+        responseTime[question-1] = timerCount
         if (answerC.titleLabel?.text == quizData[question-1].correctAns) {
             answerC.backgroundColor = UIColor(netHex:0xD3E397)
+            numCorrect++
         } else {
             answerC.backgroundColor = UIColor(netHex:0xE96C44)
             showCorrectAnswer(answerB, button2: answerA, button3: answerD)
@@ -158,8 +190,10 @@ class QuizViewController: UIViewController {
     
     @IBAction func answerD(sender: UIButton) {
         stopTimer()
+        responseTime[question-1] = timerCount
         if (answerD.titleLabel?.text == quizData[question-1].correctAns) {
             answerD.backgroundColor = UIColor(netHex:0xD3E397)
+            numCorrect++
         } else {
             answerD.backgroundColor = UIColor(netHex:0xE96C44)
             showCorrectAnswer(answerB, button2: answerC, button3: answerA)

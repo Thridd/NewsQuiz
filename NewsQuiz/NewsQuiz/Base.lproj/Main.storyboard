@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-6" y="242"/>
         </scene>
-        <!--NewsQuiz-->
+        <!--Quizzes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="QuizCategoriesViewController" customModule="NewsQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,6 +41,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aEh-np-6iC" id="P4F-hy-qvM">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -64,19 +65,22 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="NewsQuiz" id="F38-se-Zmq">
+                    <navigationItem key="navigationItem" title="Quizzes" id="F38-se-Zmq">
                         <barButtonItem key="leftBarButtonItem" title="Articles" id="qnR-Gd-MC5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Qsu-7X-Y1g" kind="show" identifier="toArticles" id="QXX-Et-nkA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Stats" id="HB7-q6-kO8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="nND-MO-z2j" kind="show" identifier="toStats" id="Gaf-lg-DPQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="catTableView" destination="Dkg-Gx-U2c" id="05g-nV-DBv"/>
                         <segue destination="wfX-1h-I2J" kind="show" identifier="toQuiz" id="cPV-BK-B2Y"/>
                     </connections>
                 </viewController>
@@ -191,12 +195,12 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="DcJ-aQ-ibe"/>
-                                                <exclude reference="Qy7-Z4-OiP"/>
                                                 <exclude reference="NdS-ik-A52"/>
                                                 <exclude reference="OMr-q3-dXi"/>
                                                 <exclude reference="Vsk-e1-LMj"/>
                                                 <exclude reference="ymR-Kb-j49"/>
+                                                <exclude reference="DcJ-aQ-ibe"/>
+                                                <exclude reference="Qy7-Z4-OiP"/>
                                                 <exclude reference="O8N-Pe-8bA"/>
                                                 <exclude reference="XOb-dY-W23"/>
                                                 <exclude reference="Zr1-X6-5rS"/>
@@ -227,7 +231,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StatsHeader" id="JaF-By-PM3">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="64" width="600" height="20"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                                 <connections>
@@ -254,7 +258,7 @@
             </objects>
             <point key="canvasLocation" x="1423" y="-658"/>
         </scene>
-        <!--Quiz View Controller-->
+        <!--Category-->
         <scene sceneID="0cA-IP-cXU">
             <objects>
                 <viewController id="wfX-1h-I2J" customClass="QuizViewController" customModule="NewsQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -453,7 +457,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="VZQ-8a-2bs"/>
+                    <navigationItem key="navigationItem" title="Category" id="VZQ-8a-2bs"/>
                     <connections>
                         <outlet property="answerA" destination="WkH-6u-m8P" id="tNd-Rq-tHK"/>
                         <outlet property="answerB" destination="koE-Qq-HcI" id="he3-kz-D75"/>
@@ -641,8 +645,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ipB-KS-e7j"/>
+        <segue reference="QXX-Et-nkA"/>
         <segue reference="Gaf-lg-DPQ"/>
         <segue reference="cPV-BK-B2Y"/>
-        <segue reference="VFJ-g7-tHF"/>
     </inferredMetricsTieBreakers>
 </document>
