@@ -13,7 +13,7 @@ class DataHandler: NSObject {
         if !fileExists {
             let freshData = quizzesTaken()
             DataHandler.processData(freshData)
-            
+        
         }
         let qTaken = NSKeyedUnarchiver.unarchiveObjectWithFile(libraryPath!) as! quizzesTaken
         return qTaken

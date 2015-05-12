@@ -10,9 +10,21 @@ import UIKit
 
 class QuizResultsViewController: UIViewController {
 
+    
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    var category: String = String()
+    var numCorrect:Int = Int()
+    var time:Double = Double()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.hidesBackButton = true
+        self.title = category
+        let timeReformat = NSString(format: "%.2f", time)
+        answerLabel.text = "\(numCorrect)" + "/" + "\(3)"
+        timeLabel.text = "\(timeReformat)"
+        categoryLabel.text = category + " " + "Results"
         // Do any additional setup after loading the view.
     }
 

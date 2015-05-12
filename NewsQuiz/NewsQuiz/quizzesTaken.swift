@@ -21,7 +21,7 @@ class quizzesTaken: NSObject, NSCoding {
         
         self.takenBusiness = decoder.decodeBoolForKey("business")
         
-        self.takenTechnology = decoder.decodeBoolForKey("world")
+        self.takenTechnology = decoder.decodeBoolForKey("technology")
         
         self.takenSports = decoder.decodeBoolForKey("sports")
         

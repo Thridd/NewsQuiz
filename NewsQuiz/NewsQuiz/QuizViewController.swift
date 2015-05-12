@@ -33,14 +33,14 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var answerD: UIButton!
     @IBOutlet weak var nextQuestion: UIButton!
     
+    var selectedBtn = 0
     var timerCount = 0
     var timerRunning = false
     var timer = NSTimer()
-    var question = 1;
-    var category = "World"
+    var question = 1
+    var category:String = String()
     let numQuestions = 3
     var answerIndex: Int = 0
-    
     var quizData:[Article] = [Article]()
     var answerData: [String] = [String]()
     var Result = Results()
@@ -85,42 +85,17 @@ class QuizViewController: UIViewController {
         
         quizQuestionText.text = quizData[question-1].question
         //navBarTitle.topItem?.title = quizData[question-1].articleCat
-        
+        if (question == 3) {
+            averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / Double(question)
+            nextQuestion.hidden = true
+            toStatsBtn.hidden = false
+        }
         //Starts the timer when the page loads
         if (timerRunning == false) {
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("counting"), userInfo: nil, repeats: true)
             timerRunning = true
         }
-        if (question == 3) {
-            averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / Double(question)
-            nextQuestion.hidden = true
-            toStatsBtn.hidden = false
-            if (category == "World") {
-                saveData.worldTime = averageResponseTime
-                saveData.worldCorrect = numCorrect
-                StatsDataHandler.processData(saveData)
-            } else if (category == "U.S.") {
-                saveData.usTime = averageResponseTime
-                saveData.usCorrect = numCorrect
-                StatsDataHandler.processData(saveData)
-            } else if (category == "Politics") {
-                saveData.politicsTime = averageResponseTime
-                saveData.politicsCorrect = numCorrect
-                StatsDataHandler.processData(saveData)
-            } else if (category == "Business") {
-                saveData.businessTime = averageResponseTime
-                saveData.businessCorrect = numCorrect
-                StatsDataHandler.processData(saveData)
-            } else if (category == "Technology") {
-                saveData.technologyTime = averageResponseTime
-                saveData.technologyCorrect = numCorrect
-                StatsDataHandler.processData(saveData)
-            } else {
-                saveData.sportsTime = averageResponseTime
-                saveData.sportsCorrect = numCorrect
-                StatsDataHandler.processData(saveData)
-            }
-        }
+        
         
     }
 
@@ -200,6 +175,54 @@ class QuizViewController: UIViewController {
         }
     }
     
+    func storeData(){
+            
+            averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / Double(question)
+            
+            nextQuestion.hidden = true
+            toStatsBtn.hidden = false
+            //Get new data and store it
+            var overall = StatsDataHandler.getStats()
+            saveData = overall
+            saveData.overallTime = overall.overallTime + averageResponseTime
+            saveData.overallCorrect += numCorrect
+            saveData.overallWrong = (3 - numCorrect) + overall.overallWrong
+            if (category == "World") {
+                saveData.worldTime = averageResponseTime
+                saveData.worldCorrect = numCorrect
+                saveData.worldWrong += 3
+                println(saveData.worldWrong)
+                StatsDataHandler.processData(saveData)
+            } else if (category == "U.S.") {
+                saveData.usTime = averageResponseTime
+                saveData.usCorrect = numCorrect
+                saveData.usWrong += 3
+                StatsDataHandler.processData(saveData)
+                
+            } else if (category == "Politics") {
+                saveData.politicsTime = averageResponseTime
+                saveData.politicsCorrect = numCorrect
+                saveData.politicsWrong += 3
+                StatsDataHandler.processData(saveData)
+            } else if (category == "Business") {
+                saveData.businessTime = averageResponseTime
+                saveData.businessCorrect = numCorrect
+                saveData.businessWrong += 3
+                StatsDataHandler.processData(saveData)
+            } else if (category == "Technology") {
+                saveData.technologyTime = averageResponseTime
+                saveData.technologyCorrect = numCorrect
+                saveData.technologyWrong += 3
+                StatsDataHandler.processData(saveData)
+            } else {
+                saveData.sportsTime = averageResponseTime
+                saveData.sportsCorrect = numCorrect
+                saveData.sportsWrong += 3
+                StatsDataHandler.processData(saveData)
+            }
+        
+    }
+    
     func stopTimer() {
         if (timerRunning == true) {
             timer.invalidate()
@@ -238,8 +261,18 @@ class QuizViewController: UIViewController {
     }
 
     @IBAction func toStats(sender: AnyObject) {
+        storeData()
+        selectedBtn = 1
         performSegueWithIdentifier("toResults", sender: self)
 
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if selectedBtn == 1{
+            let destinationViewController = segue.destinationViewController as! QuizResultsViewController
+            destinationViewController.category = category
+            destinationViewController.time = averageResponseTime
+            destinationViewController.numCorrect = numCorrect
+        }
     }
 }
 
