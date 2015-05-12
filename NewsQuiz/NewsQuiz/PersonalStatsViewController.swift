@@ -25,6 +25,7 @@ class PersonalStatsViewController: UIViewController, UICollectionViewDataSource,
         navigationController!.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         navigationController!.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.
+        
     }
 
     

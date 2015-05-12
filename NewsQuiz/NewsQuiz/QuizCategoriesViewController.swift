@@ -115,6 +115,7 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         selectedCategory = categories[indexPath.row]
         selectedBtn = 2
         var a = DataHandler.getQuizzes()
@@ -149,10 +150,12 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
         if selectedBtn == 2{
             let destinationViewController = segue.destinationViewController as! QuizViewController
             destinationViewController.category = selectedCategory
         }
+
     }
     
     @IBAction func returnToQuizzes(segue: UIStoryboardSegue) {
