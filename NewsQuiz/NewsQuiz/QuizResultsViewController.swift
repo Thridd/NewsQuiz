@@ -19,8 +19,9 @@ class QuizResultsViewController: UIViewController {
     var time:Double = Double()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor(netHex:0x8DCCC0)
         self.navigationItem.hidesBackButton = true
-        self.title = category
+        self.title = category + " " + "Results"
         let timeReformat = NSString(format: "%.2f", time)
         answerLabel.text = "\(numCorrect)" + "/" + "\(3)"
         timeLabel.text = "\(timeReformat)"

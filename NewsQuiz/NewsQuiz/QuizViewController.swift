@@ -37,10 +37,8 @@ class QuizViewController: UIViewController {
     var timerCount = 0
     var timerRunning = false
     var timer = NSTimer()
-
     var question = 1
     var category:String = String()
-
     let numQuestions = 3
     var answerIndex: Int = 0
     var quizData:[Article] = [Article]()
@@ -50,12 +48,18 @@ class QuizViewController: UIViewController {
     var responseTime = [0, 0, 0]
     var averageResponseTime = 0.0
     var numCorrect = 0
+    var cameFrom = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+            self.navigationItem.backBarButtonItem?.title = "Quit"
+        
         //Initial color setup
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.barTintColor = UIColor(netHex:0x8DCCC0)
+        self.title = category
         self.view.backgroundColor = UIColor(netHex:0x666666)
         quizQuestionText.backgroundColor = UIColor(netHex:0x666666)
         answerA.backgroundColor = UIColor(netHex:0x8DCCC0)
@@ -188,7 +192,7 @@ class QuizViewController: UIViewController {
             saveData = overall
             saveData.overallTime = overall.overallTime + averageResponseTime
             saveData.overallCorrect += numCorrect
-            saveData.overallWrong = (3 - numCorrect) + overall.overallWrong
+            saveData.overallWrong += 3
             if (category == "World") {
                 saveData.worldTime = averageResponseTime
                 saveData.worldCorrect = numCorrect

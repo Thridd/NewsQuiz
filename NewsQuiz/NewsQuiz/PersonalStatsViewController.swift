@@ -25,7 +25,6 @@ class PersonalStatsViewController: UIViewController, UICollectionViewDataSource,
         navigationController!.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         navigationController!.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.
-        
     }
 
     
@@ -51,66 +50,69 @@ class PersonalStatsViewController: UIViewController, UICollectionViewDataSource,
         let statsCell = collectionView.dequeueReusableCellWithReuseIdentifier("StatsCell", forIndexPath: indexPath) as! StatsCollectionViewCell
         if indexPath.section == 0 {
             var score = "\(quizStats.overallCorrect)" + "/" + "\(quizStats.overallWrong)"
-            var time = "\(quizStats.overallTime)"
+            //var time = "\(quizStats.overallTime)"
             
             
 
-            
+            let time = NSString(format: "%.2f", quizStats.overallTime)
             let scoreCons = "Correct Answers"
             let timeCons = "Average Response Time"
             let header = sections[indexPath.section]
-             statsCell.setStats(time, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
+             statsCell.setStats(time as String, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
         }
         
         if indexPath.section == 1 {
-            var time = "\(quizStats.worldTime)"
+            //var time = "\(quizStats.worldTime)"
             var score = "\(quizStats.worldCorrect)" + "/" + "\(quizStats.worldWrong)"
-            
-            println(quizStats.worldWrong)
+            let time = NSString(format: "%.2f", quizStats.worldTime)
             
             let scoreCons = "Correct Answers"
             let timeCons = "Average Response Time"
             let header = sections[indexPath.section]
-            statsCell.setStats(time, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
+            statsCell.setStats(time as String, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
         }
         
         if indexPath.section == 2 {
             var score = "\(quizStats.usCorrect)" + "/" + "\(quizStats.usWrong)"
-            var time = "\(quizStats.usTime)"
-            
+            //var time = "\(quizStats.usTime)"
+            let time = NSString(format: "%.2f", quizStats.usTime)
+
             
             
             let scoreCons = "Correct Answers"
             let timeCons = "Average Response Time"
             let header = sections[indexPath.section]
-            statsCell.setStats(time, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
+            statsCell.setStats(time as String, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
         }
         if indexPath.section == 3 {
             var score = "\(quizStats.politicsCorrect)" + "/" + "\(quizStats.politicsWrong)"
-            var time = "\(quizStats.politicsTime)"
-            
+            //var time = "\(quizStats.politicsTime)"
+            let time = NSString(format: "%.2f", quizStats.politicsTime)
+
             
             
             let scoreCons = "Correct Answers"
             let timeCons = "Average Response Time"
             let header = sections[indexPath.section]
-            statsCell.setStats(time, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
+            statsCell.setStats(time as String, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
         }
         if indexPath.section == 4 {
             var score = "\(quizStats.businessCorrect)" + "/" + "\(quizStats.businessWrong)"
-            var time = "\(quizStats.businessTime)"
-            
+            //var time = "\(quizStats.businessTime)"
+            let time = NSString(format: "%.2f", quizStats.businessTime)
+
             
             
             
             let scoreCons = "Correct Answers"
             let timeCons = "Average Response Time"
             let header = sections[indexPath.section]
-            statsCell.setStats(time, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
+            statsCell.setStats(time as String, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
         }
         if indexPath.section == 5 {
             var score = "\(quizStats.technologyCorrect)" + "/" + "\(quizStats.technologyWrong)"
-            var time = "\(quizStats.technologyTime)"
+            //var time = "\(quizStats.technologyTime)"
+            let time = NSString(format: "%.2f", quizStats.technologyTime)
 
             
             
@@ -118,11 +120,12 @@ class PersonalStatsViewController: UIViewController, UICollectionViewDataSource,
             let scoreCons = "Correct Answers"
             let timeCons = "Average Response Time"
             let header = sections[indexPath.section]
-            statsCell.setStats(time, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
+            statsCell.setStats(time as String, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
         }
         if indexPath.section == 6 {
             var score = "\(quizStats.sportsCorrect)" + "/" + "\(quizStats.sportsWrong)"
-            var time = "\(quizStats.sportsTime)"
+            //var time = "\(quizStats.sportsTime)"
+            let time = NSString(format: "%.2f", quizStats.sportsTime)
 
             
             
@@ -130,7 +133,7 @@ class PersonalStatsViewController: UIViewController, UICollectionViewDataSource,
             let scoreCons = "Correct Answers"
             let timeCons = "Average Response Time"
             let header = sections[indexPath.section]
-            statsCell.setStats(time, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
+            statsCell.setStats(time as String, timeLabelText: score, scoreConstantLabelText: scoreCons, timeConstantLabelText: timeCons, headerText: header)
         }
         
        

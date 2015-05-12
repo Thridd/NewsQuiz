@@ -10,14 +10,20 @@ import UIKit
 
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var articles = ["Article1"]
-    var dates = ["Date"]
-    var selectedCategory = String()
+    @IBOutlet weak var articlesTableView: UITableView!
+    var art: Articles = Articles()
+    var urls: [String] = [String]()
+    var selectedArticle: Article?
+    var categories:[String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let articleData = appDelegate.getArticleData()
         
-        // Do any additional setup after loading the view.
+        //for var i = 0; i < articleData.articleData.count; i+=3 {
+        //   categories.append(articleData.articleData[i].articleCat)
+        //}
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,28 +36,32 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         return 1
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return articles.count
+        return art.articleData.count
     }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = articles[indexPath.row]
-        
+        cell.textLabel?.text = art.articleData[indexPath.row].headline
+        cell.detailTextLabel?.text = "\(art.articleData[indexPath.row].date)"
         return cell
     }
     
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedCategory = articles[indexPath.row]
+        selectedArticle = art.articleData[indexPath.row]
         performSegueWithIdentifier("toArticleWeb", sender: self)
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //let destinationViewController = segue.destinationViewController as MapLocationsViewController
-        //destinationViewController.region = selectedRegion
+        let destinationViewController = segue.destinationViewController as! ArticlesWebViewController
+        destinationViewController.art = selectedArticle
+        destinationViewController.cameFrom = 1
     }
 
 }
