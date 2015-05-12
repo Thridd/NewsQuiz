@@ -37,7 +37,7 @@ class QuizViewController: UIViewController {
     var timerRunning = false
     var timer = NSTimer()
     var question = 1;
-    var category = "World"
+    var category = String()
     let numQuestions = 3
     var answerIndex: Int = 0
     

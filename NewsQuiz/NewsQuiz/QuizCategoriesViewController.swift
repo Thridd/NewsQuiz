@@ -13,7 +13,6 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var catTableView: UITableView!
     
     var categories:[String] = [String]()
-    var a = quizzesTaken()
     var selectedBtn = Int()
     var selectedCategory = String()
     
@@ -93,6 +92,8 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var a = quizzesTaken()
         selectedCategory = categories[indexPath.row]
         selectedBtn == 2
         if categories[indexPath.row] == "World"{
@@ -127,8 +128,7 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController as! QuizViewController
-        //QuizViewController.
-        //destinationViewController.region = selectedRegion
+        destinationViewController.category = selectedCategory
     }
     
     @IBAction func returnToQuizzes(segue: UIStoryboardSegue) {
