@@ -115,14 +115,12 @@ class QuizViewController: UIViewController {
             
             averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / Double(question)
             nextQuestion.hidden = true
-            //toStatsBtn.hidden = false
         }
         //Starts the timer when the page loads
         if (timerRunning == false) {
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("counting"), userInfo: nil, repeats: true)
             timerRunning = true
         }
-        
         
     }
 
@@ -149,7 +147,6 @@ class QuizViewController: UIViewController {
         timerCount = 0
         timerDisplay.text = "0"
         question++
-        //self.view.setNeedsDisplay()
         answerData.removeAll()
         self.viewDidLoad()
     }
@@ -239,7 +236,6 @@ class QuizViewController: UIViewController {
                 saveData.worldTime = averageResponseTime
                 saveData.worldCorrect = numCorrect
                 saveData.worldWrong += 3
-                println(saveData.worldWrong)
                 StatsDataHandler.processData(saveData)
             } else if (category == "U.S.") {
                 saveData.usTime = averageResponseTime
