@@ -22,7 +22,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     var business:[Article] = [Article]()
     var technology:[Article] = [Article]()
     var sports:[Article] = [Article]()
-    
+    var selectedCategory: String = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +77,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! UITableViewCell
+        //cell.backgroundColor = UIColor.darkGrayColor()
         if indexPath.section == 0{
             cell.textLabel?.text = world[indexPath.row].headline
             cell.detailTextLabel?.text = "\(world[indexPath.row].date)"
@@ -109,7 +110,30 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedArticle = art.articleData[indexPath.row]
+        if indexPath.section == 0{
+            selectedArticle = art.articleData[indexPath.row]
+            selectedCategory = categories[indexPath.row]
+        }
+        if indexPath.section == 1{
+            selectedArticle = art.articleData[indexPath.row + 3]
+            selectedCategory = categories[indexPath.row + 3]
+        }
+        if indexPath.section == 2{
+            selectedArticle = art.articleData[indexPath.row + 6]
+            selectedCategory = categories[indexPath.row + 6]
+        }
+        if indexPath.section == 3{
+            selectedArticle = art.articleData[indexPath.row + 9]
+            selectedCategory = categories[indexPath.row + 9]
+        }
+        if indexPath.section == 4{
+            selectedArticle = art.articleData[indexPath.row + 12]
+            selectedCategory = categories[indexPath.row + 12]
+        }
+        if indexPath.section == 5{
+            selectedArticle = art.articleData[indexPath.row + 15]
+            selectedCategory = categories[indexPath.row + 15]
+        }
         performSegueWithIdentifier("toArticleWeb", sender: self)
     }
     
@@ -117,6 +141,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController as! ArticlesWebViewController
         destinationViewController.art = selectedArticle
+        destinationViewController.category = selectedCategory
         destinationViewController.cameFrom = 1
     }
 }
