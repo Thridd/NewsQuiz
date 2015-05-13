@@ -258,7 +258,7 @@
             </objects>
             <point key="canvasLocation" x="1423" y="-658"/>
         </scene>
-        <!--Category-->
+        <!--Quiz View Controller-->
         <scene sceneID="0cA-IP-cXU">
             <objects>
                 <viewController id="wfX-1h-I2J" customClass="QuizViewController" customModule="NewsQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -457,9 +457,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Category" id="VZQ-8a-2bs">
-                        <barButtonItem key="backBarButtonItem" title="Quit" id="qXJ-uD-Uiz"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="answerA" destination="WkH-6u-m8P" id="tNd-Rq-tHK"/>
                         <outlet property="answerB" destination="koE-Qq-HcI" id="he3-kz-D75"/>

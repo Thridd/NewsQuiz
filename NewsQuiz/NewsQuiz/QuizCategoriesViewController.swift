@@ -11,16 +11,26 @@ import UIKit
 class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var catTableView: UITableView!
-    
+    var backTitle = false
     var categories:[String] = [String]()
     var selectedBtn = Int()
     var selectedCategory = String()
     override func viewWillAppear(animated: Bool) {
         selectedBtn = 0
+        self.title = "Quizzes"
+        backTitle = false
 
+    }
+    override func viewWillDisappear(animated: Bool) {
+        if backTitle == true {
+            self.title = "Quit"
+        } else {
+            self.title = "Quizzes"
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Quizzes"
         self.navigationItem.hidesBackButton = true
         navigationController?.navigationBar.barTintColor = UIColor(netHex:0x8DCCC0)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -121,6 +131,7 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedCategory = categories[indexPath.row]
         selectedBtn = 2
+        backTitle = true
         var a = DataHandler.getQuizzes()
         if categories[indexPath.row] == "World"{
             a.takenWorld = true
