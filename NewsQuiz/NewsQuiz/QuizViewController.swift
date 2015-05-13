@@ -50,11 +50,30 @@ class QuizViewController: UIViewController {
     var numCorrect = 0
     var cameFrom = 0
     
+    override func viewWillDisappear(animated: Bool) {
+        if selectedBtn == 0{
+            if question == 1{
+                averageResponseTime = Double(responseTime[0]) / 3
+            }
+            if question == 2{
+                averageResponseTime = Double(responseTime[0] + responseTime[1]) / 3
+            }
+            if question == 3{
+                averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / 3
+            }
+            
+            storeData()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        selectedBtn = 0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-            self.navigationItem.backBarButtonItem?.title = "Quit"
+        self.navigationItem.backBarButtonItem?.title = "Quit"
         
         //Initial color setup
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
@@ -88,13 +107,15 @@ class QuizViewController: UIViewController {
         //Set question number
         questionNumber.text = "Question \(question)/3"
         toStatsBtn.hidden = true
+        nextQuestion.hidden = true
         
         quizQuestionText.text = quizData[question-1].question
         //navBarTitle.topItem?.title = quizData[question-1].articleCat
         if (question == 3) {
+            
             averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / Double(question)
             nextQuestion.hidden = true
-            toStatsBtn.hidden = false
+            //toStatsBtn.hidden = false
         }
         //Starts the timer when the page loads
         if (timerRunning == false) {
@@ -134,6 +155,11 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func answerA(sender: UIButton) {
+        if question != 3 {
+            nextQuestion.hidden = false
+        } else {
+            toStatsBtn.hidden = false
+        }
         stopTimer()
         responseTime[question-1] = timerCount
         if (answerA.titleLabel?.text == quizData[question-1].correctAns) {
@@ -146,6 +172,11 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func answerB(sender: UIButton) {
+        if question != 3 {
+            nextQuestion.hidden = false
+        } else {
+            toStatsBtn.hidden = false
+        }
         stopTimer()
         responseTime[question-1] = timerCount
         if (answerB.titleLabel?.text == quizData[question-1].correctAns) {
@@ -158,6 +189,11 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func answerC(sender: UIButton) {
+        if question != 3 {
+            nextQuestion.hidden = false
+        } else {
+            toStatsBtn.hidden = false
+        }
         stopTimer()
         responseTime[question-1] = timerCount
         if (answerC.titleLabel?.text == quizData[question-1].correctAns) {
@@ -170,6 +206,11 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func answerD(sender: UIButton) {
+        if question != 3 {
+            nextQuestion.hidden = false
+        } else {
+            toStatsBtn.hidden = false
+        }
         stopTimer()
         responseTime[question-1] = timerCount
         if (answerD.titleLabel?.text == quizData[question-1].correctAns) {
@@ -182,15 +223,16 @@ class QuizViewController: UIViewController {
     }
     
     func storeData(){
-            
-            averageResponseTime = Double(responseTime[0] + responseTime[1] + responseTime[2]) / Double(question)
-            
             nextQuestion.hidden = true
             toStatsBtn.hidden = false
             //Get new data and store it
             var overall = StatsDataHandler.getStats()
             saveData = overall
-            saveData.overallTime = overall.overallTime + averageResponseTime
+        
+            saveData.totalQuizzes += 1
+            saveData.totalTime += averageResponseTime
+        
+            saveData.overallTime = (saveData.totalTime / Double(saveData.totalQuizzes))
             saveData.overallCorrect += numCorrect
             saveData.overallWrong += 3
             if (category == "World") {
@@ -261,6 +303,11 @@ class QuizViewController: UIViewController {
         }
     }
     
+    @IBAction func readMore(sender: AnyObject) {
+        selectedBtn = 2
+        performSegueWithIdentifier("readMore", sender: self)
+    }
+    
     @IBAction func quit(sender: AnyObject) {
         //Will need to make sure quiz is marked as completed before below
         self.dismissViewControllerAnimated(false, completion: nil)
@@ -278,6 +325,9 @@ class QuizViewController: UIViewController {
             destinationViewController.category = category
             destinationViewController.time = averageResponseTime
             destinationViewController.numCorrect = numCorrect
+        } else if selectedBtn == 2 {
+            let destinationViewController = segue.destinationViewController as! ArticlesWebViewController
+            destinationViewController.art = quizData[question-1]
         }
     }
 }

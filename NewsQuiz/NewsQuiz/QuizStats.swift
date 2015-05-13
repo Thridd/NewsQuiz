@@ -37,7 +37,8 @@ class QuizStats: NSObject, NSCoding {
     var sportsWrong = 0
     var sportsTime = 0.0
     
-    
+    var totalTime = 0.0
+    var totalQuizzes = 0
     
     
     // MARK: NSCoding
@@ -72,6 +73,10 @@ class QuizStats: NSObject, NSCoding {
         self.sportsWrong = decoder.decodeIntegerForKey("sportsWrong")
         self.sportsTime = decoder.decodeDoubleForKey("sportsTime")
         
+        self.totalTime = decoder.decodeDoubleForKey("totalTime")
+        self.totalQuizzes = decoder.decodeIntegerForKey("totalQuizzes")
+
+        
         
     }
     
@@ -103,6 +108,9 @@ class QuizStats: NSObject, NSCoding {
         coder.encodeInteger(self.sportsCorrect, forKey: "sportsCorrect")
         coder.encodeInteger(self.sportsWrong, forKey: "sportsWrong")
         coder.encodeDouble(self.sportsTime, forKey: "sportsTime")
+        
+        coder.encodeInteger(self.totalQuizzes, forKey: "totalQuizzes")
+        coder.encodeDouble(self.totalTime, forKey: "totalTime")
         
         
     }

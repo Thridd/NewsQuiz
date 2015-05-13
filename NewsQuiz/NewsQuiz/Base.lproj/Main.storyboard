@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tfk-Ae-JYG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tfk-Ae-JYG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -401,7 +401,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Qsu-7X-Y1g" kind="show" id="VFJ-g7-tHF"/>
+                                    <action selector="readMore:" destination="wfX-1h-I2J" eventType="touchUpInside" id="koo-nA-Zkp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -457,7 +457,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Category" id="VZQ-8a-2bs"/>
+                    <navigationItem key="navigationItem" title="Category" id="VZQ-8a-2bs">
+                        <barButtonItem key="backBarButtonItem" title="Quit" id="qXJ-uD-Uiz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="answerA" destination="WkH-6u-m8P" id="tNd-Rq-tHK"/>
                         <outlet property="answerB" destination="koE-Qq-HcI" id="he3-kz-D75"/>
@@ -469,6 +471,7 @@
                         <outlet property="timerDisplay" destination="i6T-to-RHg" id="U2R-UM-dbb"/>
                         <outlet property="toStatsBtn" destination="w99-dM-wW9" id="o8F-0W-pZM"/>
                         <segue destination="LHj-qY-WpV" kind="show" identifier="toResults" id="geo-5t-j4n"/>
+                        <segue destination="L76-ZR-LTM" kind="show" identifier="readMore" id="MZw-yh-SKA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dST-Zj-UX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -487,7 +490,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM4-HD-sba">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM4-HD-sba">
                                 <rect key="frame" x="46" y="362" width="508" height="63"/>
                                 <color key="backgroundColor" red="0.4823529412" green="0.74117647060000003" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -508,7 +511,7 @@
                                     <action selector="toQuizCategories:" destination="LHj-qY-WpV" eventType="touchUpInside" id="z2L-wm-cJc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-fv-xsY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-fv-xsY">
                                 <rect key="frame" x="46" y="450" width="508" height="63"/>
                                 <color key="backgroundColor" red="0.4823529412" green="0.74117647060000003" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -529,13 +532,13 @@
                                     <action selector="toArticles:" destination="LHj-qY-WpV" eventType="touchUpInside" id="eva-Sf-fdX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s52-zt-vIT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Congratulations!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s52-zt-vIT">
                                 <rect key="frame" x="214" y="37" width="172" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.4823529412" green="0.74117647060000003" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[category] Results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wi-3o-sO1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="[category] Results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wi-3o-sO1">
                                 <rect key="frame" x="206" y="81" width="188" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.4823529412" green="0.74117647060000003" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -601,7 +604,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5H-bX-oSw">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5H-bX-oSw">
                                 <rect key="frame" x="46" y="274" width="508" height="63"/>
                                 <color key="backgroundColor" red="0.4823529412" green="0.74117647060000003" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -769,9 +772,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="5pO-F9-IEx"/>
+        <segue reference="nCC-nF-6t7"/>
+        <segue reference="MZw-yh-SKA"/>
         <segue reference="ipB-KS-e7j"/>
         <segue reference="QXX-Et-nkA"/>
-        <segue reference="nCC-nF-6t7"/>
-        <segue reference="5pO-F9-IEx"/>
     </inferredMetricsTieBreakers>
 </document>

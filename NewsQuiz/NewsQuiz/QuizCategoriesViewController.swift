@@ -15,7 +15,10 @@ class QuizCategoriesViewController: UIViewController, UITableViewDataSource, UIT
     var categories:[String] = [String]()
     var selectedBtn = Int()
     var selectedCategory = String()
-    
+    override func viewWillAppear(animated: Bool) {
+        selectedBtn = 0
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
